@@ -1,0 +1,103 @@
+/* Specify box sizing */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+/* Removing padding */
+ul[class],
+ol[class] {
+  padding: 0;
+}
+
+/* Removing margins */
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+ul[class],
+ol[class],
+li,
+figure,
+figcaption,
+blockquote,
+dl,
+dd {
+  margin: 0;
+}
+
+/* Set default basic settings for body */
+body {
+  min-height: 100vh;
+  scroll-behavior: smooth;
+  text-rendering: optimizeSpeed;
+  line-height: 1.5;
+}
+
+/* Remove the default styling for all ul and il that have an attribute class*/
+ul[class],
+ol[class] {
+  list-style: none;
+}
+
+/* A elements that do not have a class are reset to default styles */
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+}
+
+a {
+  text-decoration: none;
+}
+
+/* Making it easy to work with images */
+img {
+  max-width: 100%;
+  display: block;
+}
+
+/* Inheriting fonts for inputs and buttons */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+  padding: 0;
+  outline: none;
+}
+input {
+  &:hover {
+    outline: none;
+  }
+}
+
+button {
+  background-color: transparent;
+  border: none;
+  opacity: none;
+}
+.pointer {
+  cursor: pointer;
+}
+/* Remove all animations and transitions for people who choose not to use them */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+:root {
+  --btn-background-main:#B83806;
+  --border-background-main:#C8C8C8;
+  --placeholder-color:#8A8A8A;
+  --blue-color:#2075F5;
+  --dark-color:#121212;
+}
+.main {
+  background-color: rgb(212, 210, 210);
+  width: 100vw;
+  height: 100vh;
+}
