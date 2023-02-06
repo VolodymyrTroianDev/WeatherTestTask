@@ -1,5 +1,24 @@
 {
   "header": {
-    "language": "language"
+    "main":"Main",
+    "favorites":"Favorites"
+  },
+  "main":{
+    "city":"City",
+    "day":"Day",
+    "week":"Week",
+    "hour":"Hour",
+    "temp":"Temperature",
+    "temp_max":"Max temperature",
+    "temp_min":"Min temperature",
+    "wind_speed":"Wind speed",
+    "type_weather":"Weather",
+    "cityAndVillage":"City/Village",
+    "cityExists":"The city has been added and already exists",
+    "errorsWrong":"Oops, something went wrong",
+    "ok":"OK",
+    "maxCardList":"The number of blocks has been exceeded (maximum 5), to add a new block, delete one of the previous ones",
+    "deleteCard":"You wish to issue a block",
+    "confirmed":"Confirmation"
   }
 }

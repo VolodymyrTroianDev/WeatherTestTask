@@ -1,20 +1,22 @@
 import { createRouter, createWebHistory } from "vue-router";
-import Home from "../views/Home.vue";
 import i18n from "../i18n";
+import Favorites from "../views/Favorites.vue";
 import Main from "../views/Main.vue";
+import Header from "../components/Header.vue";
 
 const routes = [
   {
     path: "/:locale",
-    name: "Main",
+    name: "main",
     components: {
+      Header,
       default: Main,
     },
     beforeEnter: (to, from, next) => {
       const locale = to.params.locale;
       const supported_locales =
-      import.meta.env.VITE_APP_I18N_SUPPORTED_LOCALE.split(",");
-      if (!supported_locales.includes(locale)) return next("ua");
+        import.meta.env.VITE_APP_I18N_SUPPORTED_LOCALE.split(",");
+      if (!supported_locales.includes(locale)) return next("uk");
       if (i18n.locale !== locale) {
         i18n.locale = locale;
       }
@@ -22,10 +24,11 @@ const routes = [
     },
   },
   {
-    path: "/:locale/home",
-    name: "EditProfile",
+    path: "/:locale/favorites",
+    name: "favorites",
     components: {
-      default: Home,
+      Header,
+      default: Favorites,
     },
   },
   {
@@ -39,19 +42,7 @@ const routes = [
     redirect() {
       return import.meta.env.VITE_APP_I18N_LOCALE;
     },
-  },
-  // {
-  //   path: "/:locale/:catchAll(.*)",
-  //   redirect() {
-  //     return import.meta.env.VITE_APP_I18N_LOCALE;
-  //   },
-  // },
-  // {
-  //   path: "/:catchAll(.*)",
-  //   redirect() {
-  //     return import.meta.env.VITE_APP_I18N_LOCALE;
-  //   },
-  // },
+  }
 ];
 
 const router = createRouter({

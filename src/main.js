@@ -15,21 +15,25 @@ import components from "./import";
 import directives from "./directives/index";
 /*Directives */
 const app = createApp(App);
-const pinia = createPinia()
+const pinia = createPinia();
+
 directives.forEach((directive) => {
     app.directive(directive.name, directive);
 });
+
 for (let index = 0; index < Object.keys(components).length; index++) {
     const element = Object.keys(components)[index];
     app.component(element, components[element])
 }
+
 for (let index = 0; index < Object.keys(image).length; index++) {
     const element = Object.keys(image)[index];
     app.component(element, image[element])
 }
+
 app
     .use(router)
     .use(pinia)
-    .use(VueAxios, axios)
     .use(i18n)
+    .use(VueAxios, axios)
     .mount('#app')

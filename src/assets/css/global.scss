@@ -27,13 +27,29 @@ dl,
 dd {
   margin: 0;
 }
-
+/* Remove the default styling for all ul and il that have an attribute class*/
+ul[class],
+ol[class] {
+  list-style: none;
+}
+li {
+  list-style-type: none;
+}
+ul {
+  margin: 0;
+  margin-left: 0;
+  padding-left: 0;
+}
 /* Set default basic settings for body */
 body {
-  min-height: 100vh;
+  background-color: var(--background-main);
+  width: 100vw;
+  height: 100vh;
   scroll-behavior: smooth;
   text-rendering: optimizeSpeed;
   line-height: 1.5;
+  font-family: "Open Sans";
+  overflow-x: hidden;
 }
 
 /* Remove the default styling for all ul and il that have an attribute class*/
@@ -65,6 +81,8 @@ select {
   font: inherit;
   padding: 0;
   outline: none;
+
+
 }
 input {
   &:hover {
@@ -80,6 +98,8 @@ button {
 .pointer {
   cursor: pointer;
 }
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@300&family=Open+Sans&display=swap");
+
 /* Remove all animations and transitions for people who choose not to use them */
 @media (prefers-reduced-motion: reduce) {
   * {
@@ -89,15 +109,119 @@ button {
     scroll-behavior: auto !important;
   }
 }
+#app {
+  display: flex;
+  justify-content: center;
+}
 :root {
   --btn-background-main:#B83806;
+  --background-main:#353535;
+  --white:white;
   --border-background-main:#C8C8C8;
   --placeholder-color:#8A8A8A;
   --blue-color:#2075F5;
   --dark-color:#121212;
 }
-.main {
-  background-color: rgb(212, 210, 210);
-  width: 100vw;
-  height: 100vh;
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background-color: var(--background-color-btn);
+  box-shadow: 0 0 2px rgba(0, 0, 0, .2) inset;
+}
+::-webkit-scrollbar-thumb {
+  background-color: #C4C6C8;
+  border-radius: 10px;
+  &:hover {
+    background:#A2A5A9
+  }
+}
+.active {
+  color: var(--white) !important;
+  border-bottom: 1px solid var(--white);
+}
+
+.header-text-style {
+  color: var(--border-background-main);
+  font-size: 14px;
+}
+
+.bounce-enter-active {
+  animation: bounce-in 0.5s;
+}
+.bounce-leave-active {
+  animation: bounce-in 0.5s reverse;
+}
+@keyframes bounce-in {
+  0% {
+    transform: scale(0);
+  }
+  50% {
+    transform: scale(1.25);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+.list-move, /* apply transition to moving elements */
+.list-enter-active,
+.list-leave-active {
+  transition: all 0.5s ease;
+}
+
+.list-enter-from,
+.list-leave-to {
+  opacity: 0;
+  transform: translateX(30px);
+}
+
+/* ensure leaving items are taken out of layout flow so that moving
+   animations can be calculated correctly. */
+.list-leave-active {
+  position: absolute;
+}
+
+.modal {
+  max-width: 400px;
+  max-height: 300px;
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+  background: rgb(66, 64, 64);
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 100;
+  & .modal__title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    border-bottom: 1px solid var(--border-background-main);
+    & .modal__title__text {
+      color: var(--border-background-main);
+      font-size: 16px;
+    }
+  }
+  & .modal__content {
+    height: calc(100% - 65px);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    & .modal__content__text {
+      color: var(--border-background-main);
+    }
+    & .modal__content__btn {
+      color: var(--border-background-main);
+      max-width: 100px;
+      width: 100%;
+      border-radius: 5px;
+      font-size: 15px;
+      background: rgb(113, 113, 113);
+      cursor: pointer;
+    }
+  }
 }

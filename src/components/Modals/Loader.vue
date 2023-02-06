@@ -4,7 +4,6 @@
 
 <script>
 import "@/assets/css/loader.scss";
-export default {};
 </script>
 
 <style lang="scss">

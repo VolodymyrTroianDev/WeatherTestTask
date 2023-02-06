@@ -1,9 +1,9 @@
 <template>
   <div class="localization" @click="toggleDropdown()">
-    <ua-img class="pointer" v-if="GeneralStore.useLanguage === 'ua'" />
+    <ua-img class="pointer" v-if="GeneralStore.useLanguage === 'uk'" />
     <uk-img class="pointer" v-else />
     <div class="localization__dropdown" v-if="store.activeDropdown">
-      <ua-img class="pointer" @click="selectLanguage('ua')" />
+      <ua-img class="pointer" @click="selectLanguage('uk')" />
       <uk-img class="pointer" @click="selectLanguage('en')" />
     </div>
   </div>
