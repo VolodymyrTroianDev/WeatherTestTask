@@ -1,5 +1,6 @@
 const { defineConfig } = require('@vue/cli-service')
 module.exports = defineConfig({
+  publicPath:'/WeatherTestTask/',
   pluginOptions: {
     i18n: {
       locale: 'en',
